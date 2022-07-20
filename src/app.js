@@ -23,7 +23,6 @@ function formatDate(timestamp) {
 }
 
 function displayTemperature(response) {
-  console.log(response.data);
   //temperature
   let selectTemp = document.querySelector("#temperature");
   selectTemp.innerHTML = Math.round(response.data.main.temp);
@@ -36,13 +35,6 @@ function displayTemperature(response) {
   let selectDescription = document.querySelector("#description");
   selectDescription.innerHTML = response.data.weather[0].description;
 
-  //precipitation
-  /*let selectPrecipitation = document.querySelector("#precipitation");
-  let precipitation = response.data.minulely[1].precipitation;
-  if (precipitation) {
-    selectPrecipitation.innerHTML = precipitation;
-  }*/
-
   //humidity
   let selectHumidity = document.querySelector("#humidity");
   selectHumidity.innerHTML = response.data.main.humidity;
@@ -54,6 +46,14 @@ function displayTemperature(response) {
   //date
   let selectDate = document.querySelector("#date");
   selectDate.innerHTML = formatDate(response.data.dt * 1000);
+
+  //icon
+  let selectIcon = document.querySelector("#icon");
+  selectIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  selectIcon.setAttribute("alt", `${response.data.weather[0].description}`);
 }
 
 let apiKey = "7484e80630313a40c6d275fe9ae8e684";
