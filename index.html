@@ -18,13 +18,28 @@
   <body>
     <div class="weather-app">
       <div class="container">
-        <input
-          class="form-control"
-          list="datalistOptions"
-          id="exampleDataList"
-          placeholder="Type to search..."
-        />
-        <h1 id="city">Kharkiv</h1>
+        <form id="search-form">
+          <div class="row">
+            <div class="col">
+              <input
+                type="search"
+                class="form-control"
+                list="datalistOptions"
+                id="city-input"
+                placeholder="Type to search..."
+              />
+            </div>
+            <div class="col-3">
+              <input
+                type="submit"
+                value="Search"
+                class="btn btn-primary w-100"
+              />
+            </div>
+          </div>
+        </form>
+
+        <h1 id="city"></h1>
         <h2>
           <ul>
             <li>Last update: <span id="date"></span></li>

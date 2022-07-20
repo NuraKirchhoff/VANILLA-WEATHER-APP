@@ -56,8 +56,22 @@ function displayTemperature(response) {
   selectIcon.setAttribute("alt", `${response.data.weather[0].description}`);
 }
 
-let apiKey = "7484e80630313a40c6d275fe9ae8e684";
-let city = "Kharkiv";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+// search control
+function search(city) {
+  let apiKey = "7484e80630313a40c6d275fe9ae8e684";
 
-axios.get(apiUrl).then(displayTemperature);
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+function submitCity(event) {
+  event.preventDefault();
+  let cityImput = document.querySelector("#city-input");
+  search(cityImput.value);
+}
+
+search("Paris");
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", submitCity);
