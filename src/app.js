@@ -25,7 +25,8 @@ function formatDate(timestamp) {
 function displayTemperature(response) {
   //temperature
   let selectTemp = document.querySelector("#temperature");
-  selectTemp.innerHTML = Math.round(response.data.main.temp);
+  celsiusTemp = response.data.main.temp;
+  selectTemp.innerHTML = Math.round(celsiusTemp);
 
   //city
   let selectCity = document.querySelector("#city");
@@ -71,7 +72,33 @@ function submitCity(event) {
   search(cityImput.value);
 }
 
-search("Paris");
-
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", submitCity);
+
+search("Paris");
+
+//unit conversion
+
+function convertToFarenheit(event) {
+  event.preventDefault();
+  let selectTemp = document.querySelector("#temperature");
+  selectCelsius.classList.remove("active");
+  selectFarenheit.classList.add("active");
+  let farenheitTemp = Math.round(celsiusTemp * 1.8 + 32);
+  selectTemp.innerHTML = farenheitTemp;
+}
+function convertToCelsius(event) {
+  event.preventDefault();
+  let selectTemp = document.querySelector("#temperature");
+  selectFarenheit.classList.remove("active");
+  selectCelsius.classList.add("active");
+  selectTemp.innerHTML = Math.round(celsiusTemp);
+}
+
+let celsiusTemp = null;
+let selectFarenheit = document.querySelector("#farenheit");
+
+selectFarenheit.addEventListener("click", convertToFarenheit);
+
+let selectCelsius = document.querySelector("#celsius");
+selectCelsius.addEventListener("click", convertToCelsius);

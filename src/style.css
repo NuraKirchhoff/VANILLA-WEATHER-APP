@@ -31,6 +31,7 @@ a {
 .units a {
   text-decoration: none;
   color: rgb(33, 33, 33);
+  font-weight: 200;
 }
 .weather-app {
   background-color: rgb(245, 245, 245);
@@ -61,4 +62,9 @@ a {
 }
 .form-control {
   background-color: rgb(245, 245, 245);
+}
+
+.weather-temperature .active {
+  cursor: default;
+  color: rgb(135, 135, 135);
 }
