@@ -66,5 +66,20 @@ a {
 
 .weather-temperature .active {
   cursor: default;
-  color: rgb(135, 135, 135);
+  opacity: 0.5;
+}
+
+.weather-forecast {
+  text-align: center;
+}
+.weather-forcast-date {
+  font-size: 16px;
+  opacity: 0.5;
+}
+.weather-forecast-temperature {
+  font-size: 13px;
+}
+
+.weather-forecast-temperature-min {
+  opacity: 0.5;
 }
