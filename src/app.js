@@ -32,11 +32,19 @@ function formatDay(timestamp) {
 
 function displayForecast(response) {
   let forecast = response.data.daily;
+  let slectPrecipitation = document.querySelector("#precipitation");
+
+  if (response.data.hourly[0].pop) {
+    slectPrecipitation.innerHTML = response.data.hourly[0].pop * 100;
+  } else {
+    slectPrecipitation.innerHTML = 0;
+  }
 
   let selectForecast = document.querySelector("#weather-forecast");
   let forecastHTML = `<div class="row">`;
 
   forecast.forEach(function (forcastDay, index) {
+    let i = 1;
     if (index > 0 && index < 6) {
       forecastHTML =
         forecastHTML +
@@ -129,30 +137,4 @@ function submitCity(event) {
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", submitCity);
 
-search("Paris");
-
-//unit conversion
-
-function convertToFarenheit(event) {
-  event.preventDefault();
-  let selectTemp = document.querySelector("#temperature");
-  selectCelsius.classList.remove("active");
-  selectFarenheit.classList.add("active");
-  let farenheitTemp = Math.round(celsiusTemp * 1.8 + 32);
-  selectTemp.innerHTML = farenheitTemp;
-}
-function convertToCelsius(event) {
-  event.preventDefault();
-  let selectTemp = document.querySelector("#temperature");
-  selectFarenheit.classList.remove("active");
-  selectCelsius.classList.add("active");
-  selectTemp.innerHTML = Math.round(celsiusTemp);
-}
-
-let celsiusTemp = null;
-let selectFarenheit = document.querySelector("#farenheit");
-
-selectFarenheit.addEventListener("click", convertToFarenheit);
-
-let selectCelsius = document.querySelector("#celsius");
-selectCelsius.addEventListener("click", convertToCelsius);
+search("Kharkiv");

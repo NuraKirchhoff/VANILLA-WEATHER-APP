@@ -21,6 +21,7 @@ li {
   list-style: none;
   color: #878787;
   font-size: 16px;
+  line-height: 22px;
 }
 li::first-letter {
   text-transform: capitalize;
@@ -43,7 +44,6 @@ a {
   border-radius: 10px;
 }
 .weather-temperature img {
-  margin-right: 10px;
   height: 70px;
   width: 70px;
   vertical-align: top;
@@ -64,22 +64,17 @@ a {
   background-color: rgb(245, 245, 245);
 }
 
-.weather-temperature .active {
-  cursor: default;
-  opacity: 0.5;
-}
-
 .weather-forecast {
   text-align: center;
 }
 .weather-forcast-date {
   font-size: 16px;
-  opacity: 0.5;
+  opacity: 0.7;
 }
 .weather-forecast-temperature {
   font-size: 13px;
 }
 
 .weather-forecast-temperature-min {
-  opacity: 0.5;
+  opacity: 0.7;
 }
