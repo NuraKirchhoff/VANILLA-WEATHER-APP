@@ -39,14 +39,7 @@
           </div>
         </form>
 
-        <h1 id="city"></h1>
-        <h2>
-          <ul>
-            <li><span id="date"></span></li>
-            <li id="description">clear</li>
-          </ul>
-        </h2>
-        <div class="row">
+        <div class="row current-weather">
           <div class="col">
             <div class="clearfix weather-temperature">
               <img src="" alt="" id="icon" />
@@ -54,15 +47,25 @@
               <span class="units"> ºC </span>
             </div>
           </div>
-          <div class="col-5">
+          <div class="col-3 parameters">
             <ul>
               <li>Precipitation: <span id="precipitation">0</span>%</li>
               <li>Humidity: <span id="humidity">0</span>%</li>
               <li>Wind: <span id="wind"></span> km/h</li>
             </ul>
           </div>
-          <div class="weather-forecast" id="weather-forecast"></div>
+          <div class="col current-city">
+            <h1 id="city"></h1>
+            <h2>
+              <ul>
+                <li><span id="date"></span></li>
+                <li id="description">clear</li>
+              </ul>
+            </h2>
+          </div>
         </div>
+        <hr />
+        <div class="weather-forecast" id="weather-forecast"></div>
       </div>
       <small>
         <a
